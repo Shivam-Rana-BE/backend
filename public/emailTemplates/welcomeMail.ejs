@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Platform!</title>
+    <style type="text/css">
+        a:hover {
+            text-decoration: underline !important;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f2f3f8;
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+
+        .content {
+            background: #fff;
+            border-radius: 3px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            /* font-size: 26px;
+            font-weight: 500; */
+            color: #1e1e2d;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #1e1e2d;
+        }
+
+        p {
+            font-size: 14px;
+            color: #455056;
+            line-height: 24px;
+            margin: 8px 0;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #a7a8a8;
+            line-height: 22px;
+            text-align: center;
+        }
+
+        .footer {
+            font-size: 12px;
+            color: rgba(69, 80, 86, 0.74);
+            line-height: 18px;
+        }
+
+        .social-links {
+            margin-top: 40px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .logo {
+            max-width: 150px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <img src="https://yourwebsite.com/logo.png" alt="Logo" class="logo">
+            <h1>Welcome to Our Platform!</h1>
+            <h2>Hello {{name}}!</h2>
+            <p>Thank you for joining our community! We're thrilled to have you on board.</p>
+            <p>Explore all the amazing features we offer and get started on your journey.</p>
+
+
+            <div class="social-links">
+                <p>Stay connected with us:</p>
+                <a href="https://facebook.com/yourprofile">Facebook</a>
+                <a href="https://twitter.com/yourprofile">Twitter</a>
+                <a href="https://instagram.com/yourprofile">Instagram</a>
+            </div>
+
+            <p class="footer-text">If you have any questions, feel free to reach out to our support team at <a
+                    href="mailto:support@yourwebsite.com"
+                    style="color: #585858; text-decoration: none;">support@test.com</a>.</p>
+            <p class="footer">© <strong>
+                    {{year}} ability-advocacy.com
+                </strong></p>
+        </div>
+    </div>
+</body>
+
+</html>

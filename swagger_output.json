@@ -1,0 +1,2928 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Ability-advocacy  API Documentation",
+    "description": "API documentation",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1",
+  "schemes": "http",
+  "paths": {
+    "/login": {
+      "post": {
+        "tags": [
+          "Common"
+        ],
+        "summary": "login",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/loginSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/forgot-password": {
+      "post": {
+        "tags": [
+          "Common"
+        ],
+        "summary": "forgot-password",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/forgotPasswordSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/verify-code": {
+      "post": {
+        "tags": [
+          "Common"
+        ],
+        "summary": "verify-code",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/verifyCodeSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/reset-password": {
+      "post": {
+        "tags": [
+          "Common"
+        ],
+        "summary": "reset-password",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/loginSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/site-setting": {
+      "post": {
+        "tags": [
+          "Common"
+        ],
+        "summary": "manage-site-setting",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/siteSettingSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Common"
+        ],
+        "summary": "get-site-setting",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/fetch-invitations": {
+      "post": {
+        "tags": [
+          "Common"
+        ],
+        "summary": "Fetch list of all invitations",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/fetchInvitationsSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Invitations fetched successfully"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/delete-invitation/{id}": {
+      "delete": {
+        "tags": [
+          "Common"
+        ],
+        "summary": "Delete an invitation",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Invitation deleted successfully"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/update-invitation": {
+      "post": {
+        "tags": [
+          "Common"
+        ],
+        "summary": "Update invited user",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/updateInvitedCentreSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Invitation send successfully"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/resend-invitation-mail": {
+      "post": {
+        "tags": [
+          "Common"
+        ],
+        "summary": "resend-invitation-mail",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/resendInvitationSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resend invitation send successfully"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/parent/signup": {
+      "post": {
+        "tags": [
+          "Parents"
+        ],
+        "summary": "parent-signup",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/parentSignupSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/parent/get-profile": {
+      "get": {
+        "tags": [
+          "Parents"
+        ],
+        "summary": "get-profile",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/parent/update-profile": {
+      "put": {
+        "tags": [
+          "Parents"
+        ],
+        "summary": "update-profile",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "phone_number",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "profile_image",
+            "in": "formData",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/parent/change-password": {
+      "put": {
+        "tags": [
+          "Parents"
+        ],
+        "summary": "change-password",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/changePasswordSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/parent/get-kid-list": {
+      "get": {
+        "tags": [
+          "Parents"
+        ],
+        "summary": "get-kid-list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/therapist/signup": {
+      "post": {
+        "tags": [
+          "Therapist"
+        ],
+        "summary": "therapist-signup",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/therapistSignupSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/therapist/filter-list": {
+      "get": {
+        "tags": [
+          "Therapist"
+        ],
+        "summary": "Fetch therapists with search and category filter",
+        "description": "",
+        "parameters": [
+          {
+            "name": "category_id",
+            "in": "query",
+            "description": "Category ID to filter therapists",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search term to filter therapists by name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of items per page for pagination",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/therapist/login-via-invitation": {
+      "post": {
+        "tags": [
+          "Therapist"
+        ],
+        "summary": "therapist-login-via-invitation",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/loginViaInvitationSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/therapist/therapist-profile": {
+      "get": {
+        "tags": [
+          "Therapist"
+        ],
+        "summary": "therapist-profile",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/therapistCenter/signup": {
+      "post": {
+        "tags": [
+          "Therapist Center"
+        ],
+        "summary": "therapist-center-signup",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/therapistCenterSignupSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/therapistCenter/login-via-invitation": {
+      "post": {
+        "tags": [
+          "Therapist Center"
+        ],
+        "summary": "login-via-invitation",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/loginViaInvitationSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/therapistCenter/sub-center": {
+      "post": {
+        "tags": [
+          "Therapist Center"
+        ],
+        "summary": "add-sub-center",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/addSubCenterSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/therapistCenter/invite-therapist": {
+      "post": {
+        "tags": [
+          "Therapist Center"
+        ],
+        "summary": "invite-therapist",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/inviteTherapistSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Invitation send successfully"
+          }
+        }
+      }
+    },
+    "/therapistCenter/add-therapist": {
+      "post": {
+        "tags": [
+          "Therapist Center"
+        ],
+        "summary": "add-therapist",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/addTherapistSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/therapistCenter/center-therapist-list": {
+      "get": {
+        "tags": [
+          "Therapist Center"
+        ],
+        "summary": "fetch-all-therapist-of-center",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 10
+                }
+              }
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/therapistCenter/manage-therapist-status": {
+      "post": {
+        "tags": [
+          "Therapist Center"
+        ],
+        "summary": "manage-therapist-status",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/manageTherapistStatusSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/therapistCenter/delete-therapist/{therapist_id}": {
+      "delete": {
+        "tags": [
+          "Therapist Center"
+        ],
+        "summary": "soft-delete-therapist",
+        "description": "",
+        "parameters": [
+          {
+            "name": "therapist_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/therapistCenter/fetch-profile": {
+      "get": {
+        "tags": [
+          "Therapist Center"
+        ],
+        "summary": "Fetch the profile of the logged-in therapy center",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profile fetched successfully"
+          },
+          "404": {
+            "description": "Profile not found"
+          }
+        }
+      }
+    },
+    "/therapistCenter/update-profile": {
+      "put": {
+        "tags": [
+          "Therapist Center"
+        ],
+        "summary": "Update Therapist Center Profile",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "therapy_center_name",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Therapy center name"
+          },
+          {
+            "name": "brand_name",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Brand name of the therapy center"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Email of the therapy center"
+          },
+          {
+            "name": "contact_number",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Contact number of the therapy center"
+          },
+          {
+            "name": "website",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Website URL of the therapy center"
+          },
+          {
+            "name": "profile_image",
+            "in": "formData",
+            "type": "file",
+            "description": "Profile image of the therapy center"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/therapistCenter/fetch-therapist/{therapist_id}": {
+      "get": {
+        "tags": [
+          "Therapist Center"
+        ],
+        "summary": "Fetch Therapist Details",
+        "description": "",
+        "parameters": [
+          {
+            "name": "therapist_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/kid/add-kid": {
+      "post": {
+        "tags": [
+          "Kids"
+        ],
+        "summary": "add-kid",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "date_of_birth",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "diagnosis",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "attachments",
+            "in": "formData",
+            "type": "array",
+            "items": {
+              "type": "file"
+            }
+          },
+          {
+            "name": "profile_image",
+            "in": "formData",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/kid/{id}": {
+      "get": {
+        "tags": [
+          "Kids"
+        ],
+        "summary": "get-profile",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/kid/change-status": {
+      "patch": {
+        "tags": [
+          "Kids"
+        ],
+        "summary": "status-change",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/statusSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/kid/remove-kid/{id}": {
+      "put": {
+        "tags": [
+          "Kids"
+        ],
+        "summary": "remove-kid",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/kid/update-kid": {
+      "put": {
+        "tags": [
+          "Kids"
+        ],
+        "summary": "update-Kid",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "kidId",
+            "in": "formData",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "date_of_birth",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "diagnosis",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "attachments",
+            "in": "formData",
+            "type": "array",
+            "items": {
+              "type": "file"
+            }
+          },
+          {
+            "name": "removeAttachments",
+            "in": "formData",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "profile_image",
+            "in": "formData",
+            "type": "file"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "removeAttachments": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/kid/milestones/submit-answer": {
+      "post": {
+        "tags": [
+          "Kids"
+        ],
+        "summary": "submit-milestone-answer",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/submitMilestoneSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/kid/milestones/pending-questions/{kidId}": {
+      "get": {
+        "tags": [
+          "Kids"
+        ],
+        "summary": "pending-questions-list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "kidId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/kid/milestones/activity/{kidId}": {
+      "get": {
+        "tags": [
+          "Kids"
+        ],
+        "summary": "milestone-activity-list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "kidId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/login": {
+      "post": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "login",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/loginSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/admin/milestone-question": {
+      "post": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "add-milestone-question",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "question",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "que_icon",
+            "in": "formData",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "update-milestone-question",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "questionId",
+            "in": "formData",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "question",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "que_icon",
+            "in": "formData",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/milestone-questions": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Get milestone questions",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 10
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/milestone-question/{questionId}": {
+      "delete": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "remove-milestone-question",
+        "description": "",
+        "parameters": [
+          {
+            "name": "questionId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/therapist-centers": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "fetch-all-therapist-center",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 10
+                }
+              }
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/parent-kids/{parentId}": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "fetch-all-kids-of-parent",
+        "description": "",
+        "parameters": [
+          {
+            "name": "parentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/parents-list": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "fetch-all-parents-list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 10
+                }
+              }
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/kids-list": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "fetch-all-kids-list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 10
+                }
+              }
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/add-category": {
+      "post": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Create a new therapist category",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/addTherapistCategorySwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category added successfully"
+          },
+          "400": {
+            "description": "Category name already exists"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/all-categories": {
+      "get": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Get all therapist categories",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "List of therapist categories"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/update-category/{id}": {
+      "put": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Update therapist category by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID of the therapist category to update"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/updateTherapistCategorySwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category updated successfully"
+          },
+          "400": {
+            "description": "Category not found"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/delete-category/{id}": {
+      "delete": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Soft delete therapist category by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID of the therapist category to delete"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Therapist category deleted successfully"
+          },
+          "400": {
+            "description": "Category not found"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/invite-therapy-center": {
+      "post": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Invite therapy center",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/inviteTherapyCenterSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Invitation send successfully"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/change-user-status": {
+      "post": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "Change user status",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/changeUserStatusSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/delete-user/{userId}": {
+      "delete": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "delete-user",
+        "description": "",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/manage-center-availability": {
+      "post": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "manage-center-availability",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/manageAvailabilitySwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/admin/update-center-details": {
+      "put": {
+        "tags": [
+          "Admins"
+        ],
+        "summary": "update-center-details",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/updateCentreDetailsSwaggerSchema"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/chat/update-socket-id": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "update-socket-id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/chat/check-group": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "check-group",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/chat/create-private-group": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "create-private-group",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/chat/create-team-group": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "create-team-group",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "groupName",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "members",
+            "in": "formData",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "group_icon",
+            "in": "formData",
+            "type": "file"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "members": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/chat/reset-unread-count": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "reset-unread-count",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/chat/fetch-all-group": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "fetch-all-group",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/chat/get-group-members": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "get-group-members",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/chat/frequently-contacted-list": {
+      "get": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "frequently-contacted-list",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/chat/single-group-details/{groupId}": {
+      "get": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "single-group-details",
+        "description": "",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "statusSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Active",
+              "Inactive",
+              "Suspended"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "status"
+        ],
+        "additionalProperties": false
+      },
+      "submitMilestoneSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "kidId": {
+            "type": "number",
+            "format": "float"
+          },
+          "questionId": {
+            "type": "number",
+            "format": "float"
+          },
+          "answer": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "kidId",
+          "questionId",
+          "answer"
+        ],
+        "additionalProperties": false
+      },
+      "parentSignupSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "English"
+            ]
+          },
+          "phone_number": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "password",
+          "language"
+        ],
+        "additionalProperties": false
+      },
+      "changePasswordSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "oldPassword": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "oldPassword",
+          "newPassword"
+        ],
+        "additionalProperties": false
+      },
+      "therapistCenterSignupSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "therapy_center_name": {
+            "type": "string"
+          },
+          "brand_name": {
+            "type": "string"
+          },
+          "is_same_legal_name": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string"
+          },
+          "contact_number": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "therapy_center_name",
+          "brand_name",
+          "is_same_legal_name",
+          "email",
+          "password",
+          "contact_number",
+          "website"
+        ],
+        "additionalProperties": false
+      },
+      "addSubCenterSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "master_center_id": {
+            "type": "number",
+            "format": "float"
+          },
+          "therapy_center_name": {
+            "type": "string"
+          },
+          "establishment": {
+            "type": "string"
+          },
+          "services_offered": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "address": {
+            "type": "string"
+          },
+          "contact_number": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "operating_hours": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "master_center_id",
+          "therapy_center_name",
+          "establishment",
+          "services_offered",
+          "address",
+          "contact_number",
+          "email"
+        ],
+        "additionalProperties": false
+      },
+      "addTherapistSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "degree": {
+            "type": "string"
+          },
+          "experience": {
+            "type": "string"
+          },
+          "expertise": {
+            "type": "string"
+          },
+          "RCINo": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "experience"
+        ],
+        "additionalProperties": false
+      },
+      "manageTherapistStatusSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "therapist_id": {
+            "type": "number",
+            "format": "float"
+          },
+          "is_active": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "therapist_id",
+          "is_active"
+        ],
+        "additionalProperties": false
+      },
+      "loginViaInvitationSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "invitationLink": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string"
+          },
+          "degree": {
+            "type": "string"
+          },
+          "experience": {
+            "type": "string"
+          },
+          "RCINo": {
+            "type": "string"
+          },
+          "category_id": {
+            "type": "integer"
+          },
+          "address": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "invitationLink",
+          "name",
+          "email",
+          "password",
+          "degree",
+          "experience",
+          "RCINo",
+          "category_id",
+          "address"
+        ],
+        "additionalProperties": false
+      },
+      "inviteTherapistSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "email"
+        ],
+        "additionalProperties": false
+      },
+      "therapistSignupSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string"
+          },
+          "degree": {
+            "type": "string"
+          },
+          "experience": {
+            "type": "string"
+          },
+          "RCINo": {
+            "type": "string"
+          },
+          "id_proof_type": {
+            "type": "string"
+          },
+          "id_proof_number": {
+            "type": "string"
+          },
+          "linkedin_url": {
+            "type": "string"
+          },
+          "category_id": {
+            "type": "integer"
+          },
+          "address": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "password",
+          "degree",
+          "experience",
+          "RCINo",
+          "id_proof_type",
+          "id_proof_number",
+          "category_id",
+          "address"
+        ],
+        "additionalProperties": false
+      },
+      "loginSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "Parent",
+              "Therapist",
+              "TherapyCenter",
+              "Admin"
+            ]
+          }
+        },
+        "required": [
+          "email",
+          "password",
+          "role"
+        ],
+        "additionalProperties": false
+      },
+      "forgotPasswordSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "Parent",
+              "Therapist",
+              "TherapyCenter"
+            ]
+          }
+        },
+        "required": [
+          "email",
+          "role"
+        ],
+        "additionalProperties": false
+      },
+      "verifyCodeSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "Parent",
+              "Therapist",
+              "TherapyCenter"
+            ]
+          }
+        },
+        "required": [
+          "email",
+          "code",
+          "role"
+        ],
+        "additionalProperties": false
+      },
+      "siteSettingSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "about": {
+            "type": "string"
+          },
+          "privacy_security": {
+            "type": "string"
+          },
+          "help_support": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "fetchInvitationsSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "search": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "accepted",
+              ""
+            ]
+          },
+          "page": {
+            "type": "integer"
+          },
+          "limit": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "updateInvitedCentreSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "invitationId": {
+            "type": "number",
+            "format": "float"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "Therapist",
+              "TherapyCenter"
+            ]
+          }
+        },
+        "required": [
+          "invitationId",
+          "type"
+        ],
+        "additionalProperties": false
+      },
+      "resendInvitationSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "Therapist",
+              "TherapyCenter"
+            ]
+          }
+        },
+        "required": [
+          "email",
+          "type"
+        ],
+        "additionalProperties": false
+      },
+      "addTherapistCategorySwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "updateTherapistCategorySwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "inviteTherapyCenterSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "email"
+        ],
+        "additionalProperties": false
+      },
+      "changeUserStatusSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "number",
+            "format": "float"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Active",
+              "Inactive",
+              "Suspended"
+            ]
+          }
+        },
+        "required": [
+          "userId",
+          "status"
+        ],
+        "additionalProperties": false
+      },
+      "manageAvailabilitySwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "number",
+            "format": "float"
+          },
+          "status": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "userId",
+          "status"
+        ],
+        "additionalProperties": false
+      },
+      "updateCentreDetailsSwaggerSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "number",
+            "format": "float"
+          },
+          "therapy_center_name": {
+            "type": "string"
+          },
+          "brand_name": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userId"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ]
+}
